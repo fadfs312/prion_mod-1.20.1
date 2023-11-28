@@ -2,6 +2,7 @@ package net.demod.prionmod.entity.custom;
 
 import net.demod.prionmod.entity.ModEntities;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -21,7 +22,12 @@ public class SotonaEntity extends AnimalEntity {
     @Override
     protected void initGoals() {
         this.goalSelector.add(1, new SwimGoal(this));
-        this.goalSelector.add(2,new MeleeAttackGoal(this,2.5f,false));
+        this.goalSelector.add(2, new MeleeAttackGoal(this, 2.5, true){
+            @Override
+            protected double getSquaredMaxAttackDistance(LivingEntity entity) {
+                return 9;
+            }
+        });
         this.goalSelector.add(3, new WanderAroundFarGoal(this, 1.6f, 10f));
         this.goalSelector.add(4, new LookAroundGoal(this));
 
