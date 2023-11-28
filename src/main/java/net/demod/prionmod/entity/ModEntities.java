@@ -13,5 +13,5 @@ import net.minecraft.util.Identifier;
 public class ModEntities {
     public static final EntityType<SotonaEntity> SOTONA= Registry.register(Registries.ENTITY_TYPE,
             new Identifier(PrionMod.MOD_ID,"sotona"),
-            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE,SotonaEntity::new).dimensions(EntityDimensions.fixed(1.25f,2.25f)).build());
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE,SotonaEntity::new).dimensions(EntityDimensions.fixed(0.5f,1.75f)).build());
 }
