@@ -11,7 +11,7 @@ import net.minecraft.util.Identifier;
 public class SotonaRenderer extends MobEntityRenderer<SotonaEntity,SotonaModel<SotonaEntity>> {
     private static final Identifier TEXTURE = new Identifier(PrionMod.MOD_ID,"textures/entity/sotona.png");
     public SotonaRenderer(EntityRendererFactory.Context context) {
-        super(context,new SotonaModel<>(context.getPart(ModModelLayers.SOTONA)),0.8f );
+        super(context,new SotonaModel<>(context.getPart(ModModelLayers.SOTONA)),0.5f );
     }
 
     @Override
