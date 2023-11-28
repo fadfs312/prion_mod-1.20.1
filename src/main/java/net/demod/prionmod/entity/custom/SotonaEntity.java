@@ -21,8 +21,8 @@ public class SotonaEntity extends AnimalEntity {
     @Override
     protected void initGoals() {
         this.goalSelector.add(1, new SwimGoal(this));
-        this.goalSelector.add(2, new MeleeAttackGoal(this, 1.2D, false));
-        this.goalSelector.add(3, new WanderAroundFarGoal(this, 0.75f, 1));
+        this.goalSelector.add(2,new MeleeAttackGoal(this,1.8,true));
+        this.goalSelector.add(3, new WanderAroundFarGoal(this, 0.75f, 10));
         this.goalSelector.add(4, new LookAroundGoal(this));
 
         this.targetSelector.add(2, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
