@@ -1,6 +1,8 @@
 package net.demod.prionmod.entity.custom;
 
 import net.demod.prionmod.entity.ModEntities;
+import net.minecraft.entity.AnimationState;
+import net.minecraft.entity.EntityPose;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.*;
@@ -16,16 +18,39 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 public class SotonaEntity extends AnimalEntity {
+    public final AnimationState idleAnimationState = new AnimationState();
+    private int idleAnimationTimeout = 0;
     public SotonaEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
+    }
+    private void setupAnimationStates(){
+        if (this.idleAnimationTimeout <= 0) {
+        this.idleAnimationTimeout = this.random.nextInt(40) + 80;
+        this.idleAnimationState.start(this.age);
+    } else {
+        --this.idleAnimationTimeout;
+    }
+
+    }
+    @Override
+    protected void updateLimbs(float posDelta) {
+        float f = this.getPose() == EntityPose.STANDING ? Math.min(posDelta * 6.0f, 1.0f) : 0.0f;
+        this.limbAnimator.updateLimbs(f, 0.2f);
+    }
+    @Override
+    public void tick(){
+        super.tick();
+        if (this.getWorld().isClient()) {
+            setupAnimationStates();
+        }
     }
     @Override
     protected void initGoals() {
         this.goalSelector.add(1, new SwimGoal(this));
-        this.goalSelector.add(2, new MeleeAttackGoal(this, 2.5, true){
+        this.goalSelector.add(2, new MeleeAttackGoal(this, 2.3, true){
             @Override
             protected double getSquaredMaxAttackDistance(LivingEntity entity) {
-                return 9;
+                return 4;
             }
         });
         this.goalSelector.add(3, new WanderAroundFarGoal(this, 1.6f, 10f));
@@ -42,14 +67,14 @@ public class SotonaEntity extends AnimalEntity {
     }
     public static DefaultAttributeContainer.Builder createSotonaAttributes() {
         return MobEntity.createMobAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH,20)
-                .add(EntityAttributes.GENERIC_ARMOR,5)
-                .add(EntityAttributes.GENERIC_ARMOR_TOUGHNESS,5)
-                .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE,0.13)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED,0.18)
+                .add(EntityAttributes.GENERIC_MAX_HEALTH,33)
+                .add(EntityAttributes.GENERIC_ARMOR,5f)
+                .add(EntityAttributes.GENERIC_ARMOR_TOUGHNESS,5f)
+                .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE,0.1f)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED,0.18f)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE,6)
-                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK,-5)
-                .add(EntityAttributes.GENERIC_ATTACK_SPEED,6)
+                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK,5f)
+                .add(EntityAttributes.GENERIC_ATTACK_SPEED,6f)
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE,80);
     }
     @Override
