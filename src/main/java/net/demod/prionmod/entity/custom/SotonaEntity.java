@@ -48,7 +48,7 @@ public class SotonaEntity extends AnimalEntity {
                 .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE,0.13)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED,0.18)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE,6)
-                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK,-1)
+                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK,-5)
                 .add(EntityAttributes.GENERIC_ATTACK_SPEED,6)
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE,80);
     }
