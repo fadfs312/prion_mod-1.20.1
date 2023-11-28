@@ -1,3 +1,5 @@
+package net.demod.prionmod.entity.client;
+
 import net.demod.prionmod.entity.custom.SotonaEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
