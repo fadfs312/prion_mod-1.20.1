@@ -8,6 +8,8 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -43,6 +45,10 @@ public class SotonaEntity extends AnimalEntity {
                 .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK,-1)
                 .add(EntityAttributes.GENERIC_ATTACK_SPEED,6)
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE,80);
+    }
+    @Override
+    public boolean isBreedingItem(ItemStack stack){
+        return stack.isOf(Items.ROTTEN_FLESH);
     }
 
     @Nullable
