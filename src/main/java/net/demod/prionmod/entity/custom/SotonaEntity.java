@@ -8,21 +8,27 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class SotonaEntity extends AnimalEntity {
+public class SotonaEntity extends HostileEntity {
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
-    public SotonaEntity(EntityType<? extends AnimalEntity> entityType, World world) {
+
+    public SotonaEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
     }
+
     private void setupAnimationStates(){
         if (this.idleAnimationTimeout <= 0) {
         this.idleAnimationTimeout = this.random.nextInt(40) + 80;
@@ -77,14 +83,10 @@ public class SotonaEntity extends AnimalEntity {
                 .add(EntityAttributes.GENERIC_ATTACK_SPEED,0.25f)
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE,80);
     }
-    @Override
-    public boolean isBreedingItem(ItemStack stack){
-        return stack.isOf(Items.ROTTEN_FLESH);
-    }
-
     @Nullable
     @Override
-    public PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
-        return ModEntities.SOTONA.create(world);
+    protected SoundEvent getHurtSound(DamageSource source){
+        return SoundEvents.ENTITY_HORSE_DEATH;
     }
+
 }
