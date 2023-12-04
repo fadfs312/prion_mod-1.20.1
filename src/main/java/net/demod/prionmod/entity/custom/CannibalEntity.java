@@ -53,7 +53,7 @@ public class CannibalEntity extends HostileEntity {
         this.goalSelector.add(2, new MeleeAttackGoal(this, 1.3, true){
             @Override
             protected double getSquaredMaxAttackDistance(LivingEntity entity) {
-                return 3;
+                return 4;
             }
         });
         this.goalSelector.add(3, new WanderAroundFarGoal(this, 1.3f, 10f));
@@ -70,15 +70,15 @@ public class CannibalEntity extends HostileEntity {
     }
     public static DefaultAttributeContainer.Builder createCannibalAttributes() {
         return MobEntity.createMobAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH,33)
+                .add(EntityAttributes.GENERIC_MAX_HEALTH,23)
                 .add(EntityAttributes.GENERIC_ARMOR,5f)
                 .add(EntityAttributes.GENERIC_ARMOR_TOUGHNESS,5f)
-                .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE,0.1f)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED,0.18f)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE,6)
-                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK,2f)
-                .add(EntityAttributes.GENERIC_ATTACK_SPEED,0.25f)
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE,80);
+                .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE,0f)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED,0.23f)
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE,3)
+                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK,0f)
+                .add(EntityAttributes.GENERIC_ATTACK_SPEED,1f)
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE,64);
     }
     @Nullable
     @Override

@@ -19,8 +19,12 @@ public class ModItems {
 
 
     private static void addItemsToSpawnEggsItemGroup(FabricItemGroupEntries entries) {
+        entries.add(CANNIBAL_SPAWN_EGG);
         entries.add(SOTONA_SPAWN_EGG);
     }
+
+    public static final Item CANNIBAL_SPAWN_EGG = registerItem("cannibal_spawn_egg",
+            new SpawnEggItem(ModEntities.CANNIBAL, 0xa86518, 0x3b260f, new FabricItemSettings()));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(PrionMod.MOD_ID, name), item);

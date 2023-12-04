@@ -1,12 +1,12 @@
 package net.demod.prionmod.entity.client;
 
+import net.demod.prionmod.entity.animation.ModAnimations;
 import net.demod.prionmod.entity.custom.CannibalEntity;
-import net.demod.prionmod.entity.custom.SotonaEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.Entity;
+import net.minecraft.util.math.MathHelper;
 
 // Made with Blockbench 4.8.3
 // Exported for Minecraft version 1.17+ for Yarn
@@ -42,15 +42,28 @@ public class CannibalModel<T extends CannibalEntity> extends SinglePartEntityMod
 		ModelPartData righthand = uppperbody.addChild("righthand", ModelPartBuilder.create().uv(0, 32).cuboid(-4.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(-4.0F, -24.0F, 0.0F));
 		return TexturedModelData.of(modelData, 64, 64);
 	}
+	@Override
+	public void setAngles(CannibalEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.getPart().traverse().forEach(ModelPart::resetTransform);
+		this.setHeadAngles(netHeadYaw, headPitch);
+
+		this.animateMovement(ModAnimations.CANNIBALMODEL_WALK, limbSwing, limbSwingAmount, 2f, 2.5f);
+		this.updateAnimation(entity.idleAnimationState, ModAnimations.IT_IDLE, ageInTicks, 1f);
+	}
+	private void setHeadAngles(float headYaw, float headPitch){
+		headYaw = MathHelper.clamp(headYaw, -30.0F, 30.0F);
+		headPitch = MathHelper.clamp(headPitch, -25.0F, 45.0F);
+
+		this.head.yaw = headYaw * 0.017453292F;
+		this.head.pitch = headPitch * 0.017453292F;
+	}
+	@Override
+	public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
+		cannibal.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
+	}
 
 	@Override
 	public ModelPart getPart() {
 		return cannibal;
-	}
-
-	@Override
-	public void setAngles(T CannibalEntity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
-
-
 	}
 }
