@@ -15,7 +15,7 @@ public class CannibalModel<T extends CannibalEntity> extends SinglePartEntityMod
 	private final ModelPart cannibal;
 	private final ModelPart head;
 	public CannibalModel(ModelPart root) {
-		this.cannibal = root.getChild("sotona");
+		this.cannibal = root.getChild("cannibal");
 		this.head=cannibal.getChild("head");
 	}
 	public static TexturedModelData getTexturedModelData() {
@@ -42,13 +42,6 @@ public class CannibalModel<T extends CannibalEntity> extends SinglePartEntityMod
 		ModelPartData righthand = uppperbody.addChild("righthand", ModelPartBuilder.create().uv(0, 32).cuboid(-4.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(-4.0F, -24.0F, 0.0F));
 		return TexturedModelData.of(modelData, 64, 64);
 	}
-	@Override
-	public void setAngles(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-	}
-	@Override
-	public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
-		cannibal.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
-	}
 
 	@Override
 	public ModelPart getPart() {
@@ -56,7 +49,8 @@ public class CannibalModel<T extends CannibalEntity> extends SinglePartEntityMod
 	}
 
 	@Override
-	public void setAngles(T entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
+	public void setAngles(T CannibalEntity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
+
 
 	}
 }

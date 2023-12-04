@@ -1,10 +1,7 @@
 package net.demod.prionmod;
 
 import net.demod.prionmod.entity.ModEntities;
-import net.demod.prionmod.entity.client.CannibalRenderer;
-import net.demod.prionmod.entity.client.ModModelLayers;
-import net.demod.prionmod.entity.client.SotonaModel;
-import net.demod.prionmod.entity.client.SotonaRenderer;
+import net.demod.prionmod.entity.client.*;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
@@ -15,7 +12,7 @@ public class PrionModClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.SOTONA, SotonaModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.SOTONA, SotonaRenderer::new);
 
-        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.CANNIBAL, SotonaModel::getTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.CANNIBAL, CannibalModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.CANNIBAL, CannibalRenderer::new);
     }
 }

@@ -21,9 +21,10 @@ public class CannibalEntity extends HostileEntity {
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
 
-    public CannibalEntity(EntityType<? extends HostileEntity> entityType, World world) {
+   public CannibalEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
     }
+
 
     private void setupAnimationStates(){
         if (this.idleAnimationTimeout <= 0) {
@@ -82,7 +83,7 @@ public class CannibalEntity extends HostileEntity {
     @Nullable
     @Override
     protected SoundEvent getHurtSound(DamageSource source){
-        return SoundEvents.ENTITY_HORSE_DEATH;
+        return SoundEvents.ENTITY_ZOMBIE_INFECT;
     }
 
 }

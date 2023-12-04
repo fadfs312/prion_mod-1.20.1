@@ -15,7 +15,7 @@ public class ModEntities {
     public static final EntityType<SotonaEntity> SOTONA= Registry.register(Registries.ENTITY_TYPE,
             new Identifier(PrionMod.MOD_ID,"sotona"),
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER,SotonaEntity::new).dimensions(EntityDimensions.fixed(0.5f,1.75f)).build());
-    public static final EntityType<SotonaEntity> CANNIBAL= Registry.register(Registries.ENTITY_TYPE,
+    public static final EntityType<CannibalEntity> CANNIBAL= Registry.register(Registries.ENTITY_TYPE,
             new Identifier(PrionMod.MOD_ID,"cannibal"),
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, CannibalEntity::new).dimensions(EntityDimensions.fixed(0.5f,1.75f)).build());
 }
