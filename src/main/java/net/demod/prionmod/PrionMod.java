@@ -4,6 +4,7 @@ import net.demod.prionmod.entity.ModEntities;
 import net.demod.prionmod.entity.custom.CannibalEntity;
 import net.demod.prionmod.entity.custom.SotonaEntity;
 import net.demod.prionmod.item.custom.ModItems;
+import net.demod.prionmod.world.gen.ModEntityGeneration;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
@@ -20,5 +21,6 @@ public class PrionMod implements ModInitializer {
 		FabricDefaultAttributeRegistry.register(ModEntities.SOTONA, SotonaEntity.createSotonaAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.CANNIBAL, CannibalEntity.createCannibalAttributes());
 		ModItems.registerModItems();
+		ModEntityGeneration.addSpawns();
 	}
 }
