@@ -52,9 +52,10 @@ public class SotonaEntity extends HostileEntity {
         this.goalSelector.add(2, new MeleeAttackGoal(this, 2.3, true){
             @Override
             protected double getSquaredMaxAttackDistance(LivingEntity entity) {
-                return 4;
+                return 3;
             }
         });
+        this.goalSelector.add(3, new WanderAroundFarGoal(this, 1.6f, 10f));
         this.goalSelector.add(3, new WanderAroundFarGoal(this, 1.6f, 10f));
         this.goalSelector.add(4, new LookAroundGoal(this));
 
@@ -92,7 +93,7 @@ public class SotonaEntity extends HostileEntity {
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE,6)
                 .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK,2f)
                 .add(EntityAttributes.GENERIC_ATTACK_SPEED,0.25f)
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE,80);
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE,32);
     }
     @Nullable
     @Override

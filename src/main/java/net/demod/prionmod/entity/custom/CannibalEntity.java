@@ -53,7 +53,7 @@ public class CannibalEntity extends HostileEntity {
         this.goalSelector.add(2, new MeleeAttackGoal(this, 1.3, true) {
             @Override
             protected double getSquaredMaxAttackDistance(LivingEntity entity) {
-                return 4;
+                return 3;
             }
         });
         this.goalSelector.add(3, new WanderAroundFarGoal(this, 1.3f, 10f));
@@ -94,7 +94,7 @@ public class CannibalEntity extends HostileEntity {
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 3)
                 .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 0f)
                 .add(EntityAttributes.GENERIC_ATTACK_SPEED, 1f)
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 64);
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 16);
     }
 
     @Nullable
