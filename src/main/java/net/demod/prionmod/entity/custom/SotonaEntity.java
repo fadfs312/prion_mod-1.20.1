@@ -68,7 +68,6 @@ public class SotonaEntity extends HostileEntity {
         this.targetSelector.add(3, new ActiveTargetGoal<>(this, CowEntity.class, true));
         this.targetSelector.add(3, new ActiveTargetGoal<>(this, ChickenEntity.class, true));
         this.targetSelector.add(3, new ActiveTargetGoal<>(this, SheepEntity.class, true));
-        this.targetSelector.add(3, new ActiveTargetGoal<>(this, CreeperEntity.class, true));
         this.targetSelector.add(3, new ActiveTargetGoal<>(this, EndermanEntity.class, true));
         this.targetSelector.add(3, new ActiveTargetGoal<>(this, ZombieEntity.class, true));
         this.targetSelector.add(3, new ActiveTargetGoal<>(this, SkeletonEntity.class, true));
@@ -85,7 +84,7 @@ public class SotonaEntity extends HostileEntity {
     }
     public static DefaultAttributeContainer.Builder createSotonaAttributes() {
         return MobEntity.createMobAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH,33)
+                .add(EntityAttributes.GENERIC_MAX_HEALTH,26)
                 .add(EntityAttributes.GENERIC_ARMOR,5f)
                 .add(EntityAttributes.GENERIC_ARMOR_TOUGHNESS,5f)
                 .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE,0.1f)
@@ -93,7 +92,7 @@ public class SotonaEntity extends HostileEntity {
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE,6)
                 .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK,2f)
                 .add(EntityAttributes.GENERIC_ATTACK_SPEED,0.25f)
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE,32);
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE,40);
     }
     @Nullable
     @Override

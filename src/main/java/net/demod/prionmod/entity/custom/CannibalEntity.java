@@ -68,7 +68,6 @@ public class CannibalEntity extends HostileEntity {
         this.targetSelector.add(3, new ActiveTargetGoal<>(this, CowEntity.class, true));
         this.targetSelector.add(3, new ActiveTargetGoal<>(this, ChickenEntity.class, true));
         this.targetSelector.add(3, new ActiveTargetGoal<>(this, SheepEntity.class, true));
-        this.targetSelector.add(3, new ActiveTargetGoal<>(this, CreeperEntity.class, true));
         this.targetSelector.add(3, new ActiveTargetGoal<>(this, EndermanEntity.class, true));
         this.targetSelector.add(3, new ActiveTargetGoal<>(this, ZombieEntity.class, true));
         this.targetSelector.add(3, new ActiveTargetGoal<>(this, SkeletonEntity.class, true));
@@ -87,14 +86,14 @@ public class CannibalEntity extends HostileEntity {
     public static DefaultAttributeContainer.Builder createCannibalAttributes() {
         return MobEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 23)
-                .add(EntityAttributes.GENERIC_ARMOR, 5f)
-                .add(EntityAttributes.GENERIC_ARMOR_TOUGHNESS, 5f)
+                .add(EntityAttributes.GENERIC_ARMOR, 4f)
+                .add(EntityAttributes.GENERIC_ARMOR_TOUGHNESS, 4f)
                 .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 0f)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.23f)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 3)
                 .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 0f)
                 .add(EntityAttributes.GENERIC_ATTACK_SPEED, 1f)
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 16);
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 40);
     }
 
     @Nullable
