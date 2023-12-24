@@ -14,8 +14,8 @@ import net.minecraft.util.Identifier;
 public class ModEntities {
     public static final EntityType<SotonaEntity> SOTONA= Registry.register(Registries.ENTITY_TYPE,
             new Identifier(PrionMod.MOD_ID,"sotona"),
-            FabricEntityTypeBuilder.create(SpawnGroup.MONSTER,SotonaEntity::new).dimensions(EntityDimensions.fixed(0.5f,1.75f)).build());
+            FabricEntityTypeBuilder.create(SpawnGroup.MONSTER,SotonaEntity::new).dimensions(EntityDimensions.fixed(0.8f,1.84f)).build());
     public static final EntityType<CannibalEntity> CANNIBAL= Registry.register(Registries.ENTITY_TYPE,
             new Identifier(PrionMod.MOD_ID,"cannibal"),
-            FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, CannibalEntity::new).dimensions(EntityDimensions.fixed(0.5f,1.75f)).build());
+            FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, CannibalEntity::new).dimensions(EntityDimensions.fixed(0.8f,1.97f)).build());
 }

@@ -1,0 +1,8 @@
+{
+  "sound_cannibal_ambient": {
+    "subtitle": "sounds.prionmod.sound_cannibal_ambient",
+    "sounds": [
+      "prionmod:sound_cannibal_ambient"
+    ]
+  }
+}

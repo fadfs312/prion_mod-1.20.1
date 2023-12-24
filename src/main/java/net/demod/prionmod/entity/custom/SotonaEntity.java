@@ -1,6 +1,7 @@
 package net.demod.prionmod.entity.custom;
 
 import net.demod.prionmod.entity.ModEntities;
+import net.demod.prionmod.sound.ModSounds;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
@@ -49,14 +50,13 @@ public class SotonaEntity extends HostileEntity {
     @Override
     protected void initGoals() {
         this.goalSelector.add(1, new SwimGoal(this));
-        this.goalSelector.add(2, new MeleeAttackGoal(this, 2.3, true){
+        this.goalSelector.add(2, new MeleeAttackGoal(this, 1f, true){
             @Override
             protected double getSquaredMaxAttackDistance(LivingEntity entity) {
-                return 3;
+                return 5;
             }
         });
-        this.goalSelector.add(3, new WanderAroundFarGoal(this, 1.6f, 10f));
-        this.goalSelector.add(3, new WanderAroundFarGoal(this, 1.6f, 10f));
+        this.goalSelector.add(3, new WanderAroundFarGoal(this, 1f, 10f));
         this.goalSelector.add(4, new LookAroundGoal(this));
 
         this.targetSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
@@ -68,6 +68,10 @@ public class SotonaEntity extends HostileEntity {
         this.targetSelector.add(3, new ActiveTargetGoal<>(this, CowEntity.class, true));
         this.targetSelector.add(3, new ActiveTargetGoal<>(this, ChickenEntity.class, true));
         this.targetSelector.add(3, new ActiveTargetGoal<>(this, SheepEntity.class, true));
+        this.targetSelector.add(3, new ActiveTargetGoal<>(this, LlamaEntity.class, true));
+        this.targetSelector.add(3, new ActiveTargetGoal<>(this, GoatEntity.class, true));
+        this.targetSelector.add(3, new ActiveTargetGoal<>(this, MuleEntity.class, true));
+        this.targetSelector.add(3, new ActiveTargetGoal<>(this, CamelEntity.class, true));
         this.targetSelector.add(3, new ActiveTargetGoal<>(this, EndermanEntity.class, true));
         this.targetSelector.add(3, new ActiveTargetGoal<>(this, ZombieEntity.class, true));
         this.targetSelector.add(3, new ActiveTargetGoal<>(this, SkeletonEntity.class, true));
@@ -84,13 +88,13 @@ public class SotonaEntity extends HostileEntity {
     }
     public static DefaultAttributeContainer.Builder createSotonaAttributes() {
         return MobEntity.createMobAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH,26)
-                .add(EntityAttributes.GENERIC_ARMOR,5f)
-                .add(EntityAttributes.GENERIC_ARMOR_TOUGHNESS,5f)
-                .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE,0.1f)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED,0.18f)
+                .add(EntityAttributes.GENERIC_MAX_HEALTH,28)
+                .add(EntityAttributes.GENERIC_ARMOR,7f)
+                .add(EntityAttributes.GENERIC_ARMOR_TOUGHNESS,6f)
+                .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE,0f)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED,0.414f)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE,6)
-                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK,2f)
+                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK,3f)
                 .add(EntityAttributes.GENERIC_ATTACK_SPEED,0.25f)
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE,40);
     }
@@ -99,16 +103,23 @@ public class SotonaEntity extends HostileEntity {
     protected SoundEvent getHurtSound(DamageSource source){
         return SoundEvents.ENTITY_HORSE_DEATH;
     }
+
+    @Nullable
+    @Override
+    protected SoundEvent getAmbientSound() {
+        return ModSounds.AMBIENT_SOUND;
+    }
+
     @Override
     public boolean onKilledOther(ServerWorld world, LivingEntity other) {
         ModEntities EntitiesRegistry = new ModEntities();
-        var cannibalEntity = EntitiesRegistry.CANNIBAL.create(world);
+        var sotonaEntity = EntitiesRegistry.SOTONA.create(world);
         Entity entity = (Entity)other;
-        world.spawnEntity(cannibalEntity);
-        if (cannibalEntity != null) {
-            cannibalEntity.refreshPositionAndAngles(this.getX(), this.getY(), this.getZ(), this.getYaw(), this.getPitch());
-            cannibalEntity.initialize(world, world.getLocalDifficulty(entity.getBlockPos()), SpawnReason.CONVERSION, null, null);
-            cannibalEntity.setAiDisabled(this.isAiDisabled());
+        world.spawnEntity(sotonaEntity);
+        if (sotonaEntity != null) {
+            sotonaEntity.refreshPositionAndAngles(this.getX(), this.getY(), this.getZ(), this.getYaw(), this.getPitch());
+            sotonaEntity.initialize(world, world.getLocalDifficulty(entity.getBlockPos()), SpawnReason.CONVERSION, null, null);
+            sotonaEntity.setAiDisabled(this.isAiDisabled());
         }
         return false;
     }

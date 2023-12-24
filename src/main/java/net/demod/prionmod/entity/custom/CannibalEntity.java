@@ -1,6 +1,7 @@
 package net.demod.prionmod.entity.custom;
 
 import net.demod.prionmod.entity.ModEntities;
+import net.demod.prionmod.sound.ModSounds;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
@@ -14,6 +15,8 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+
+import java.awt.*;
 
 public class CannibalEntity extends HostileEntity {
     public final AnimationState idleAnimationState = new AnimationState();
@@ -50,13 +53,13 @@ public class CannibalEntity extends HostileEntity {
     @Override
     protected void initGoals() {
         this.goalSelector.add(1, new SwimGoal(this));
-        this.goalSelector.add(2, new MeleeAttackGoal(this, 1.3, true) {
+        this.goalSelector.add(2, new MeleeAttackGoal(this, 1f, true) {
             @Override
             protected double getSquaredMaxAttackDistance(LivingEntity entity) {
-                return 3;
+                return 7;
             }
         });
-        this.goalSelector.add(3, new WanderAroundFarGoal(this, 1.3f, 10f));
+        this.goalSelector.add(3, new WanderAroundFarGoal(this, 1f, 10f));
         this.goalSelector.add(4, new LookAroundGoal(this));
 
         this.targetSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
@@ -68,6 +71,10 @@ public class CannibalEntity extends HostileEntity {
         this.targetSelector.add(3, new ActiveTargetGoal<>(this, CowEntity.class, true));
         this.targetSelector.add(3, new ActiveTargetGoal<>(this, ChickenEntity.class, true));
         this.targetSelector.add(3, new ActiveTargetGoal<>(this, SheepEntity.class, true));
+        this.targetSelector.add(3, new ActiveTargetGoal<>(this, LlamaEntity.class, true));
+        this.targetSelector.add(3, new ActiveTargetGoal<>(this, GoatEntity.class, true));
+        this.targetSelector.add(3, new ActiveTargetGoal<>(this, MuleEntity.class, true));
+        this.targetSelector.add(3, new ActiveTargetGoal<>(this, CamelEntity.class, true));
         this.targetSelector.add(3, new ActiveTargetGoal<>(this, EndermanEntity.class, true));
         this.targetSelector.add(3, new ActiveTargetGoal<>(this, ZombieEntity.class, true));
         this.targetSelector.add(3, new ActiveTargetGoal<>(this, SkeletonEntity.class, true));
@@ -89,17 +96,16 @@ public class CannibalEntity extends HostileEntity {
                 .add(EntityAttributes.GENERIC_ARMOR, 4f)
                 .add(EntityAttributes.GENERIC_ARMOR_TOUGHNESS, 4f)
                 .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 0f)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.23f)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.351f)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 3)
                 .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 0f)
                 .add(EntityAttributes.GENERIC_ATTACK_SPEED, 1f)
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 40);
     }
-
     @Nullable
     @Override
-    protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundEvents.ENTITY_ZOMBIE_INFECT;
+    protected SoundEvent getAmbientSound() {
+        return ModSounds.AMBIENT_SOUND;
     }
 
     @Override
