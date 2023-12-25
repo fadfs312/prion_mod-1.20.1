@@ -113,13 +113,13 @@ public class SotonaEntity extends HostileEntity {
     @Override
     public boolean onKilledOther(ServerWorld world, LivingEntity other) {
         ModEntities EntitiesRegistry = new ModEntities();
-        var sotonaEntity = EntitiesRegistry.SOTONA.create(world);
+        var cannibalEntity = EntitiesRegistry.CANNIBAL.create(world);
         Entity entity = (Entity)other;
-        world.spawnEntity(sotonaEntity);
-        if (sotonaEntity != null) {
-            sotonaEntity.refreshPositionAndAngles(this.getX(), this.getY(), this.getZ(), this.getYaw(), this.getPitch());
-            sotonaEntity.initialize(world, world.getLocalDifficulty(entity.getBlockPos()), SpawnReason.CONVERSION, null, null);
-            sotonaEntity.setAiDisabled(this.isAiDisabled());
+        world.spawnEntity(cannibalEntity);
+        if (cannibalEntity != null) {
+            cannibalEntity.refreshPositionAndAngles(this.getX(), this.getY(), this.getZ(), this.getYaw(), this.getPitch());
+            cannibalEntity.initialize(world, world.getLocalDifficulty(entity.getBlockPos()), SpawnReason.CONVERSION, null, null);
+            cannibalEntity.setAiDisabled(this.isAiDisabled());
         }
         return false;
     }
