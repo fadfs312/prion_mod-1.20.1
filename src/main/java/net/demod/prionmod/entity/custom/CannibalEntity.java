@@ -61,33 +61,8 @@ public class CannibalEntity extends HostileEntity {
         });
         this.goalSelector.add(3, new WanderAroundFarGoal(this, 1f, 10f));
         this.goalSelector.add(4, new LookAroundGoal(this));
-
-        this.targetSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
-        this.targetSelector.add(3, new ActiveTargetGoal<>(this, VillagerEntity.class, true));
-        this.targetSelector.add(2, new ActiveTargetGoal<>(this, IronGolemEntity.class, true));
-        this.targetSelector.add(3, new ActiveTargetGoal<>(this, PigEntity.class, true));
-        this.targetSelector.add(3, new ActiveTargetGoal<>(this, HorseEntity.class, true));
-        this.targetSelector.add(3, new ActiveTargetGoal<>(this, DonkeyEntity.class, true));
-        this.targetSelector.add(3, new ActiveTargetGoal<>(this, CowEntity.class, true));
-        this.targetSelector.add(3, new ActiveTargetGoal<>(this, ChickenEntity.class, true));
-        this.targetSelector.add(3, new ActiveTargetGoal<>(this, SheepEntity.class, true));
-        this.targetSelector.add(3, new ActiveTargetGoal<>(this, LlamaEntity.class, true));
-        this.targetSelector.add(3, new ActiveTargetGoal<>(this, GoatEntity.class, true));
-        this.targetSelector.add(3, new ActiveTargetGoal<>(this, MuleEntity.class, true));
-        this.targetSelector.add(3, new ActiveTargetGoal<>(this, CamelEntity.class, true));
-        this.targetSelector.add(3, new ActiveTargetGoal<>(this, EndermanEntity.class, true));
-        this.targetSelector.add(3, new ActiveTargetGoal<>(this, ZombieEntity.class, true));
-        this.targetSelector.add(3, new ActiveTargetGoal<>(this, SkeletonEntity.class, true));
-        this.targetSelector.add(3, new ActiveTargetGoal<>(this, SpiderEntity.class, true));
-        this.targetSelector.add(3, new ActiveTargetGoal<>(this, HuskEntity.class, true));
-        this.targetSelector.add(3, new ActiveTargetGoal<>(this, DrownedEntity.class, true));
-        this.targetSelector.add(3, new ActiveTargetGoal<>(this, WitchEntity.class, true));
-        this.targetSelector.add(3, new ActiveTargetGoal<>(this, MerchantEntity.class, true));
-        this.targetSelector.add(3, new ActiveTargetGoal<>(this, ZombieVillagerEntity.class, true));
-        this.targetSelector.add(3, new ActiveTargetGoal<>(this, StrayEntity.class, true));
-        this.targetSelector.add(3, new ActiveTargetGoal<>(this, EvokerEntity.class, true));
-        this.targetSelector.add(3, new ActiveTargetGoal<>(this, PillagerEntity.class, true));
-        this.targetSelector.add(3, new ActiveTargetGoal<>(this, VindicatorEntity.class, true));
+        this.targetSelector.add(2, new RevengeGoal(this, new Class[0]).setGroupRevenge(ZombifiedPiglinEntity.class));
+        this.targetSelector.add(3, new ActiveTargetGoal<>(this, LivingEntity.class, true, livingEntity -> !(livingEntity instanceof CannibalEntity) && !(livingEntity instanceof SotonaEntity)));
     }
 
     public static DefaultAttributeContainer.Builder createCannibalAttributes() {
