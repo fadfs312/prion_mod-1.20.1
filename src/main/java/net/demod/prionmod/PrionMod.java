@@ -3,6 +3,7 @@ package net.demod.prionmod;
 import net.demod.prionmod.entity.ModEntities;
 import net.demod.prionmod.entity.custom.CannibalEntity;
 import net.demod.prionmod.entity.custom.SotonaEntity;
+import net.demod.prionmod.item.custom.ModItemGroups;
 import net.demod.prionmod.item.custom.ModItems;
 import net.demod.prionmod.sound.ModSounds;
 import net.demod.prionmod.world.gen.ModEntityGeneration;
@@ -24,5 +25,6 @@ public class PrionMod implements ModInitializer {
 		ModItems.registerModItems();
 		ModEntityGeneration.addSpawns();
 		ModSounds.registerSounds();
+		ModItemGroups.registerItemGroups();
 	}
 }

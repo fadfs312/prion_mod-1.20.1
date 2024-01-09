@@ -19,9 +19,9 @@ public class ModItems {
 
 
     private static void addItemsToSpawnEggsItemGroup(FabricItemGroupEntries entries) {
-        entries.add(CANNIBAL_SPAWN_EGG);
-        entries.add(SOTONA_SPAWN_EGG);
+
     }
+    public static final Item MEAT = registerItem("meat", new Item(new FabricItemSettings().food(ModFoodComponents.MEAT)));
 
     public static final Item CANNIBAL_SPAWN_EGG = registerItem("cannibal_spawn_egg",
             new SpawnEggItem(ModEntities.CANNIBAL, 0xa86518, 0x3b260f, new FabricItemSettings()));
