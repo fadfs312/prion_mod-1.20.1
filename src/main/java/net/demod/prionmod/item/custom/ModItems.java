@@ -15,7 +15,7 @@ import net.minecraft.util.Identifier;
 
 public class ModItems {
     public static final Item SOTONA_SPAWN_EGG = registerItem("sotona_spawn_egg",
-        new SpawnEggItem(ModEntities.SOTONA, 0xa86518, 0x3b260f, new FabricItemSettings()));
+        new SpawnEggItem(ModEntities.SOTONA, 0xffffff, 0xffffff, new FabricItemSettings()));
 
 
     private static void addItemsToSpawnEggsItemGroup(FabricItemGroupEntries entries) {
@@ -24,7 +24,7 @@ public class ModItems {
     public static final Item MEAT = registerItem("meat", new Item(new FabricItemSettings().food(ModFoodComponents.MEAT)));
 
     public static final Item CANNIBAL_SPAWN_EGG = registerItem("cannibal_spawn_egg",
-            new SpawnEggItem(ModEntities.CANNIBAL, 0xa86518, 0x3b260f, new FabricItemSettings()));
+            new SpawnEggItem(ModEntities.CANNIBAL, 0xffffff, 0xffffff, new FabricItemSettings()));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(PrionMod.MOD_ID, name), item);

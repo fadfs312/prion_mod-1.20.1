@@ -14,7 +14,7 @@ public class ModItemGroups {
     public static final ItemGroup PRION_GROUP = Registry.register(Registries.ITEM_GROUP,
             new Identifier(PrionMod.MOD_ID, "prion"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.prion"))
-                    .icon(() -> new ItemStack(Items.WOODEN_SWORD)).entries((displayContext, entries) -> {
+                    .icon(() -> new ItemStack(ModItems.MEAT)).entries((displayContext, entries) -> {
                         entries.add(ModItems.CANNIBAL_SPAWN_EGG);
                         entries.add(ModItems.SOTONA_SPAWN_EGG);
                         entries.add(ModItems.MEAT);

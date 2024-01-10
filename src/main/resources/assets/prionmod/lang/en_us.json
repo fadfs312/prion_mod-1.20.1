@@ -3,5 +3,6 @@
   "entity.prionmod.cannibal": "Cannibal",
   "item.prionmod.cannibal_spawn_egg": "Cannibal Spawn Egg",
   "item.prionmod.sotona_spawn_egg": "Sotona Spawn Egg",
-  "item.prionmod.meat": "Meat yum yum"
+  "item.prionmod.meat": "Meat yum yum",
+  "itemgroup.prion":"Prion Mod"
 }
