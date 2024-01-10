@@ -62,7 +62,7 @@ public class CannibalEntity extends HostileEntity {
         this.goalSelector.add(3, new WanderAroundFarGoal(this, 1f, 10f));
         this.goalSelector.add(4, new LookAroundGoal(this));
         this.targetSelector.add(2, new RevengeGoal(this, new Class[0]).setGroupRevenge(ZombifiedPiglinEntity.class));
-        this.targetSelector.add(3, new ActiveTargetGoal<>(this, LivingEntity.class, true, livingEntity -> !(livingEntity instanceof CannibalEntity) && !(livingEntity instanceof SotonaEntity)));
+        this.targetSelector.add(3, new ActiveTargetGoal<>(this, LivingEntity.class, true, livingEntity -> !(livingEntity instanceof CannibalEntity) && !(livingEntity instanceof SotonaEntity)&& !(livingEntity instanceof CreeperEntity)));
     }
 
     public static DefaultAttributeContainer.Builder createCannibalAttributes() {
