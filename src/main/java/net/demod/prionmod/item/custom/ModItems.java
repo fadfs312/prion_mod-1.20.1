@@ -25,6 +25,10 @@ public class ModItems {
 
     public static final Item CANNIBAL_SPAWN_EGG = registerItem("cannibal_spawn_egg",
             new SpawnEggItem(ModEntities.CANNIBAL, 0xffffff, 0xffffff, new FabricItemSettings()));
+    public static final Item NIGHTWALKER_SPAWN_EGG = registerItem("nightwalker_spawn_egg",
+            new SpawnEggItem(ModEntities.NIGHTWALKER, 0xffffff, 0xffffff, new FabricItemSettings()));
+    public static final Item BLOODSEEKER_SPAWN_EGG = registerItem("bloodseeker_spawn_egg",
+            new SpawnEggItem(ModEntities.BLOODSEEKER, 0xffffff, 0xffffff, new FabricItemSettings()));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(PrionMod.MOD_ID, name), item);

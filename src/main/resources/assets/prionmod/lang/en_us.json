@@ -1,8 +1,12 @@
 {
   "entity.prionmod.sotona": "Sotona",
   "entity.prionmod.cannibal": "Cannibal",
+  "entity.prionmod.nightwalker": "Nightwalker",
+  "entity.prionmod.bloodseeker": "Decaying Leach",
   "item.prionmod.cannibal_spawn_egg": "Cannibal Spawn Egg",
+  "item.prionmod.bloodseeker_spawn_egg": "Decaying Leach Spawn Egg",
   "item.prionmod.sotona_spawn_egg": "Sotona Spawn Egg",
+  "item.prionmod.nightwalker_spawn_egg": "Nightwalker Spawn Egg",
   "item.prionmod.meat": "Infected Meat",
   "itemgroup.prion":"Prion Mod"
 }

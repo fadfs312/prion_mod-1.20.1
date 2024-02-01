@@ -1,7 +1,9 @@
 package net.demod.prionmod;
 
 import net.demod.prionmod.entity.ModEntities;
+import net.demod.prionmod.entity.custom.BloodseekerEntity;
 import net.demod.prionmod.entity.custom.CannibalEntity;
+import net.demod.prionmod.entity.custom.NightwalkerEntity;
 import net.demod.prionmod.entity.custom.SotonaEntity;
 import net.demod.prionmod.item.custom.ModItemGroups;
 import net.demod.prionmod.item.custom.ModItems;
@@ -22,6 +24,8 @@ public class PrionMod implements ModInitializer {
 		LOGGER.info("Hello Fabric world!");
 		FabricDefaultAttributeRegistry.register(ModEntities.SOTONA, SotonaEntity.createSotonaAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.CANNIBAL, CannibalEntity.createCannibalAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.NIGHTWALKER, NightwalkerEntity.createNightwalkerAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.BLOODSEEKER, BloodseekerEntity.createBloodseekerAttributes());
 		ModItems.registerModItems();
 		ModEntityGeneration.addSpawns();
 		ModSounds.registerSounds();

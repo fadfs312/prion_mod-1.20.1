@@ -16,7 +16,9 @@ public class ModItemGroups {
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.prion"))
                     .icon(() -> new ItemStack(ModItems.MEAT)).entries((displayContext, entries) -> {
                         entries.add(ModItems.CANNIBAL_SPAWN_EGG);
+                        entries.add(ModItems.BLOODSEEKER_SPAWN_EGG);
                         entries.add(ModItems.SOTONA_SPAWN_EGG);
+                        entries.add(ModItems.NIGHTWALKER_SPAWN_EGG);
                         entries.add(ModItems.MEAT);
                     }).build());
     public static void registerItemGroups() {

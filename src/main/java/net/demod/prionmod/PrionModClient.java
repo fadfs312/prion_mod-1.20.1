@@ -14,5 +14,11 @@ public class PrionModClient implements ClientModInitializer {
 
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.CANNIBAL, CannibalModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.CANNIBAL, CannibalRenderer::new);
+
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.NIGHTWALKER, NightwalkerModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.NIGHTWALKER, NightwalkerRenderer::new);
+
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.BLOODSEEKER, BloodseekerModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.BLOODSEEKER, BloodseekerRenderer::new);
     }
 }

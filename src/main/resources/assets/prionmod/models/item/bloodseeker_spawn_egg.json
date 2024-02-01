@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "prionmod:item/bloodseeker_spawn_egg"
+  }
+}

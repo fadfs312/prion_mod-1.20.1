@@ -10,4 +10,8 @@ public class ModModelLayers {
 
     public static final EntityModelLayer CANNIBAL =
             new EntityModelLayer(new Identifier(PrionMod.MOD_ID,"cannibal"),"main");
+    public static final EntityModelLayer NIGHTWALKER =
+            new EntityModelLayer(new Identifier(PrionMod.MOD_ID,"nightwalker"),"main");
+    public static final EntityModelLayer BLOODSEEKER =
+            new EntityModelLayer(new Identifier(PrionMod.MOD_ID,"bloodseeker"),"main");
 }
